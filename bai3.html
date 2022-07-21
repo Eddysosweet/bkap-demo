@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="main.css">
+</head>
+
+<body>
+    <div class="container">
+        <div class="box"></div>
+    </div>
+    <script>
+
+        let i = 0
+        changeBox = function () {
+            const box = document.querySelector(".box")
+            const boxs = ["box1", "box2", "box3", "box4"]
+            for (let index = 0; index < boxs.length; index++) {
+                box.classList.remove(boxs[index])
+            }
+            box.classList.add(boxs[i])
+            i++;
+            if (i == 4) {
+                i = 0
+            }
+
+        }
+
+        const change = (ms) => {
+            return new Promise(function (resolve) {
+                setTimeout(resolve, ms)
+            })
+        }
+        change(2000)
+            .then(() => {
+                changeBox()
+                return change(2000)
+            })
+            .then(() => {
+                changeBox()
+                return change(2000)
+            })
+            .then(() => {
+                changeBox()
+                return change(2000)
+            })
+            .then(() => {
+                changeBox()
+                return change(2000)
+            })
+            .then(() => {
+                changeBox()
+                return change(2000)
+            })
+
+
+
+    </script>
+</body>
+
+</html>
