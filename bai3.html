@@ -10,34 +10,36 @@
 </head>
 
 <body>
+    <!-- css cho hộp ở main.css -->
     <div class="container">
         <div class="box"></div>
     </div>
     <script>
+        // Tạo function changeBox để mỗi khi gọi nó thì sẽ reset lại class cũ vào thêm class mới
         let i = 0
         changeBox = function () {
-            const box = document.querySelector(".box")
-            const boxs = ["box1", "box2", "box3", "box4"]
+            const box = document.querySelector(".box")          //lấy vị trí của box
+            const boxs = ["box1", "box2", "box3", "box4"]       //tạp mảng gồm tên các class bên main.css để lát add vào class list
             for (let index = 0; index < boxs.length; index++) {
-                box.classList.remove(boxs[index])
+                box.classList.remove(boxs[index])               //Reset class add vào trước đó (nếu có)  
             }
-            box.classList.add(boxs[i])
+            box.classList.add(boxs[i])                          //Add class mới vào
             i++;
             if (i == 4) {
                 i = 0
             }
 
         }
-
-        const change = (ms) => {
-            return new Promise(function (resolve) {
-                setTimeout(resolve, ms)
+        //tạo 1 hàm return về 1 promise nên change cx là 1 promise( cấu trúc promise và nó haojt đọng xem ở F8 -_- )
+        const change = (ms) => {                       //định nghĩa change theo 1 arrow funtion có tham số ms để truyền vào hàm setTmeout
+            return new Promise(function (resolve) {    //khởi tạo promise
+                setTimeout(resolve, ms)                //dùng setTimeout để sau 1 khoảng thời gian thì sẽ chạy hàm resolve
             })
         }
-        change(2000)
-            .then(() => {
-                changeBox()
-                return change(2000)
+        change(2000)                //gọi hàm change với tham số là 2000ms để nó chạy
+            .then(() => {           //.then đc hiểu là khi hàm resolve ở dòng 36 đc chạy thì những cái trong then sẽ chạy
+                changeBox()         //gọi hàm changeBox để khối hộp di chuyển như yêu cầu
+                return change(2000) //return trong then mà là 1 promise thì nó sẽ chờ cho cái promise change kia chạy xong rồi mới đến then tiếp  theo
             })
             .then(() => {
                 changeBox()
@@ -55,9 +57,6 @@
                 changeBox()
                 return change(2000)
             })
-
-
-
     </script>
 </body>
 
