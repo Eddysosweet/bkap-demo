@@ -1,0 +1,49 @@
+body{
+    margin: 0 ;
+    padding: 0;
+
+}
+.container{
+    width: 500px;
+    height: 250px;
+    margin: 0 auto;
+    background: #808080;
+    position: relative;
+}
+
+.box1
+{
+    width: 100px;
+    height: 100px;
+    background: red;
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+.box2
+{
+    width: 100px;
+    height: 100px;
+    background: red;
+    position: absolute;
+    right: 0;
+    top: 0;
+}
+.box3
+{
+    width: 100px;
+    height: 100px;
+    background: red;
+    position: absolute;
+    right: 0;
+    bottom: 0;
+}
+.box4
+{
+    width: 100px;
+    height: 100px;
+    background: red;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+}
